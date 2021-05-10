@@ -1,7 +1,7 @@
 *****Cart Module commit later.*****
 ## Public Site
 
-syp-movie-react.herokuapp.com
+https://syp-movie-react.herokuapp.com
 
 ## Available Scripts
 
