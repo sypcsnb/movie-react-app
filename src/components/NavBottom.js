@@ -13,6 +13,9 @@ const useStyles = makeStyles({
     position: "fixed",
     bottom: 0,
     zIndex: 100,
+    "& span": {
+      fontWeight: "bold",
+    },
   },
 });
 
@@ -24,7 +27,7 @@ export const NavBottom = () => {
   useEffect(() => {
     if (value === 0) history.push("/");
     else if (value === 1) history.push("/movies");
-    else if (value === 2) history.push("/cart");
+    else if (value === 2) history.push("/search");
   }, [value, history]);
 
   return (

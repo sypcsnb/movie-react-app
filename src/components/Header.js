@@ -10,7 +10,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import axios from "axios";
 import { DataContext } from "./DataProvider";
 import { BottomNavigationAction, Icon } from "@material-ui/core";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import Cart from "./cartcontent/Cart";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("sm")]: {
       display: "block",
     },
+    fontWeight: "bold",
   },
   search: {
     position: "relative",
@@ -87,14 +88,7 @@ export const Header = () => {
           <Typography className={classes.title} variant="h6" noWrap>
             MOVIES REACT
           </Typography>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-          >
-            <ShoppingCartIcon />
-          </IconButton>
+          <Cart />
         </Toolbar>
       </AppBar>
     </div>

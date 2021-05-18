@@ -8,7 +8,7 @@ import axios from "axios";
 import "./ContentModal.css";
 import { Button } from "@material-ui/core";
 import YouTubeIcon from "@material-ui/icons/YouTube";
-import CartButton from "../CartButton";
+import AddToCart from "../AddToCart";
 import { DataContext } from "../DataProvider";
 //import Carousel from "../Carousel/Carousel";
 
@@ -34,12 +34,12 @@ export default function ContentModal({ children, id }) {
   const [open, setOpen] = useState(false);
   const [content, setContent] = useState();
   const [video, setVideo] = useState();
-  //const [movieName, setMovieName] = useContext(DataContext);
+  const [movieName, setMovieName] = useContext(DataContext);
 
   const handleOpen = () => {
     setOpen(true);
     //setMovieName(content.title);
-    //console.log(content.title);
+    console.log(content.title);
   };
 
   const handleClose = () => {
@@ -137,7 +137,7 @@ export default function ContentModal({ children, id }) {
                     Watch the Trailer
                   </Button>
                   <div className="cartButton">
-                    <CartButton content={content} />
+                    <AddToCart content={content} />
                   </div>
                 </div>
               </div>

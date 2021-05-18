@@ -10,21 +10,21 @@ export const DataProvider = (props) => {
   //const [searchStatus, setSearchStatus] = useState(false);
   //const [trendStatus, setTrendStatus] = useState(true);
 
-  const [movieName, setMovieName] = useState([]);
+  const [movieCartList, setMovieCartList] = useState([]);
 
-  console.log(movieName.title);
+  //console.log(movieName.title);
 
   useEffect(() => {
-    const movieStore = localStorage.getItem("movieStore");
-    if (movieStore) setMovieName(movieStore);
+    const movieStore = JSON.parse(localStorage.getItem("movieStore"));
+    if (movieStore) setMovieCartList(movieStore);
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("movieStore", JSON.stringify(movieName.title));
-  }, [movieName]);
+    localStorage.setItem("movieStore", JSON.stringify(movieCartList));
+  }, [movieCartList]);
 
   return (
-    <DataContext.Provider value={[movieName, setMovieName]}>
+    <DataContext.Provider value={[movieCartList, setMovieCartList]}>
       {props.children}
     </DataContext.Provider>
   );

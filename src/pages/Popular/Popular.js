@@ -9,7 +9,7 @@ import Search from "../Search";
 const Trending = () => {
   const [page, setPage] = useState(1);
   const [content, setContent] = useState([]);
-  const [trendStatus, setTrendStatus] = useContext(DataContext);
+  //const [trendStatus, setTrendStatus] = useContext(DataContext);
 
   const fetchTrending = async () => {
     const { data } = await axios.get(
@@ -25,7 +25,7 @@ const Trending = () => {
   useEffect(() => {
     window.scroll(0, 0);
     fetchTrending();
-    setTrendStatus(true);
+    //setTrendStatus(true);
     // eslint-disable-next-line
   }, [page]);
 

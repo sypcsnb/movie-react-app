@@ -14,7 +14,7 @@ const Movies = () => {
   //const [numOfPages, setNumOfPages] = pages;
   //const { status } = useContext(DataContext);
   //const [searchStatus, setSearchStatus] = status;
-  const [trendStatus, setTrendStatus] = useContext(DataContext);
+  //const [trendStatus, setTrendStatus] = useContext(DataContext);
 
   //console.log(searchStatus);
 
@@ -37,7 +37,7 @@ const Movies = () => {
 
   useEffect(() => {
     fetchMovies();
-    setTrendStatus(false);
+    //setTrendStatus(false);
   }, [page, genreforURL]);
 
   return (
