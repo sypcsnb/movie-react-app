@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
@@ -51,6 +51,7 @@ const DialogTitle = withStyles(styles)((props) => {
 const DialogContent = withStyles((theme) => ({
   root: {
     padding: theme.spacing(2),
+    textAlign: "right",
   },
 }))(MuiDialogContent);
 
@@ -76,7 +77,15 @@ const StyledBadge = withStyles((theme) => ({
 export default function Cart() {
   const [open, setOpen] = useState(false);
   const [movieCartList, setMovieCartList] = useContext(DataContext);
-  console.log(movieCartList);
+  //console.log(movieCartList);
+
+  const totalAmount = movieCartList.reduce(function (
+    accumulator,
+    movieCartList
+  ) {
+    return accumulator + movieCartList.amount;
+  },
+  0);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -102,12 +111,13 @@ export default function Cart() {
         </DialogTitle>
         <DialogContent dividers>
           {movieCartList.map((data) => (
-            <CartContent id={data.id} name={data.name} />
+            <CartContent id={data.id} name={data.name} amount={data.amount} />
           ))}
         </DialogContent>
+        <DialogContent dividers>Total {totalAmount}</DialogContent>
         <DialogActions>
           <Button autoFocus onClick={handleClose} color="primary">
-            Confirm
+            Purchase
           </Button>
         </DialogActions>
       </Dialog>

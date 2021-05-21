@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
   },
 }));
-const CartContent = ({ id, name }) => {
+const CartContent = ({ id, name, amount }) => {
   const classes = useStyles();
 
   return (
@@ -26,7 +26,7 @@ const CartContent = ({ id, name }) => {
         <ListItem button>
           {name}
           <ListItemText />
-          <AmountHandleButton />
+          <AmountHandleButton amount={amount} id={id} />
         </ListItem>
         <Divider />
       </List>
